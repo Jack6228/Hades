@@ -1,0 +1,45 @@
+ACKNOWLEDGMENTS & DEPENDENCIES
+
+This package is built upon the following open-source projects. We are grateful to their contributors for making this work possible:
+
+THIRD-PARTY PACKAGES
+--------------------------------------------------------------------------------
+The following dependencies are subject to their respective third-party open-source licenses:
+
+Package Name     Version / Link           License Name / Type
+------------     --------------           -------------------
+matplotlib       PyPI / GitHub            BSD-Style (Matplotlib License)
+numpy            PyPI / GitHub            BSD 3-Clause License
+numba            PyPI / GitHub            BSD 2-Clause License
+openpyxl         PyPI / GitHub            MIT License
+PIL (Pillow)     PyPI / GitHub            CMU License
+platformdirs     PyPI / GitHub            MIT License
+pyinstaller      PyPI / GitHub            GNU General Public License v2 (GPLv2) [1]
+pytest           PyPI / GitHub            MIT License
+scipy            PyPI / GitHub            BSD 3-Clause License
+sphinx           PyPI / GitHub            BSD 2-Clause License
+sphinx_design    PyPI / GitHub            MIT License
+sphinx_rtd_theme PyPI / GitHub            MIT License
+tksheet          PyPI / GitHub            MIT License
+typst            PyPI / GitHub            Apache License 2.0
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+BUILD TOOLS AND INSTALLER SOFTWARE
+--------------------------------------------------------------------------------
+The following tools are used to compile, package, and build the Windows 
+standalone installer (.exe). They are build-time dependencies only and do not
+restrict the licensing of the output binaries:
+
+Tool Name        Purpose                        License Name / Type
+---------        -------                        -------------------
+PyInstaller      Python Executable Packager     GPLv2+ with Bootloader Exception [1]
+Inno Setup       Windows Installer Creator      Inno Setup License (BSD-style permissive)
+
+--------------------------------------------------------------------------------
+[1] PyInstaller License Note: Although PyInstaller itself is GPLv2+, it includes
+    a formal "Bootloader Exception." This exception explicitly permits compiled
+    executables (.exe) to be distributed under ANY license of your choice 
+    (including MIT, BSD, Apache, or commercial/proprietary licenses) without 
+    triggering copyleft/GPL restrictions.
+
+This package is licensed under the BSD 3-Clause License. See the LICENSE file for details.

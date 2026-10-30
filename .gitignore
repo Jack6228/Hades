@@ -1,0 +1,80 @@
+# ==========================================
+# PyInstaller & Packaging Artifacts
+# ==========================================
+# Exclude the temporary build directory and the compiled executable folder
+build/
+dist/
+# Inno Setup installer distribution folder
+installer_dist/
+
+# PyInstaller log files and cache
+*.manifest
+
+# Documentation build artifacts
+docs/_build/
+
+# ==========================================
+# Misc Ignores
+# ==========================================
+# Non-png image files
+*.eps
+# Parameter Mapping (TODO: Tidy up and commit)
+examples/_StochasticConvergenceAnalysis/
+examples/_StochasticConvergenceAnalysis/
+examples/**/parameter_landscape_maps/
+# Dev Python Scripts
+scripts/run_py_case_studies.py
+scripts/clone_notebooks.py
+
+# ==========================================
+# Python Artifacts & Environment
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Native Python extensions generated locally
+*.pyd
+*.so
+*.dylib
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Distribution / packaging tools
+.eggs/
+*.egg-info/
+*.egg
+
+# pytest cache
+.pytest_cache/
+
+# ==========================================
+# Local Configuration & Data
+# ==========================================
+# Local environment variables or secrets
+.env
+.env.*
+! .env.template
+
+# Jupyter Notebook checkpoints (from your examples folder)
+.ipynb_checkpoints/
+
+# ==========================================
+# Operating System Junk
+# ==========================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~

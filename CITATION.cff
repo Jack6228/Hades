@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the Zenodo repository until the companion paper is published"
+# message: "If you use this software, please cite the companion paper in the Journal of xxx"
+type: software
+authors:
+  - family-names: "Smith"
+    given-names: "Jack Lee"
+    orcid: "https://orcid.org/0000-0002-2935-625X"
+    affiliation: "University of Edinburgh"
+  - family-names: "Hastie"
+    given-names: "Alan R"
+    orcid: "https://orcid.org/0000-0002-6958-6930"
+    affiliation: "University of Edinburgh"
+  - family-names: "Young"
+    given-names: "Lindsay A"
+    orcid: "https://orcid.org/0009-0003-1791-0270"
+    affiliation: "University of Edinburgh"
+  - family-names: "Nash"
+    given-names: "Isobel J"
+    orcid: "https://orcid.org/"
+    affiliation: "University of Edinburgh"
+  - family-names: "Law"
+    given-names: "Sally"
+    orcid: "https://orcid.org/0000-0001-9538-944X"
+    affiliation: "University of St. Andrews"
+  - family-names: "Fitton"
+    given-names: "Godfrey"
+    orcid: "https://orcid.org/0000-0002-2534-2619"
+    affiliation: "University of Edinburgh"
+title: "Hades: a new differential evolution mass balance program to model fractional crystallisation and assimilation in igneous rocks"
+abstract: "Hades is a new open source and user-friendly petrological program designed to model the fractional crystallisation and assimilation and fractional crystallisation (AFC) of a subalkaline or alkaline suite of magmatic rocks. The software uses differential evolution optimisation to estimate the bulk modal mineral assemblage and the degree of fractional crystallisation or AFC required to explain a major and trace element liquid line of descent. The program uses a weighted absolute difference cost function to balance the contributions of the major oxides and is customisable to accommodate the investigation of complex petrological problems. Hades provides a simple and intuitive interface for users to input data and visualise the results. It is available as a standalone application or a Python module for complete automation and workflow integration.  Hades is presented as software to aid igneous petrologists and the wider geological community and can enable users to model magmatic systems from primary to evolved compositions."
+keywords:
+  - Alkaline magmas
+  - Subalkaline magmas
+  - Fractional crystallisation (and assimilation)
+  - Secondary magmatic differentiation
+version: 0.9.0
+doi: "zenodo...xxx"
+date-released: "29-10-2026"
+repository-code: "https://github.com/Jack6228/Hades"
+license: "BSD-3-Clause"
+url: "https://hades-obol.readthedocs.io/en/latest/"
+
+# For GitHub to point to the companion paper:
+# preferred-citation:
+#   type: article
+#   ...

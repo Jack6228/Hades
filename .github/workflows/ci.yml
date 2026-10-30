@@ -1,0 +1,39 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: windows-latest # Changed to Windows so it compiles/tests the .pyd correctly
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+          
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build pytest numba setuptools scipy
+
+      - name: Compile phases_precomp.py
+        working-directory: src/hades
+        run: python phases_precomp.py
+
+      - name: Verify compiled extension
+        working-directory: src/hades
+        run: |
+          python -c "import phases; print(phases.__file__)"
+
+      - name: Install package
+        run: python -m pip install .
+
+      - name: Run test suite
+        run: python -m pytest

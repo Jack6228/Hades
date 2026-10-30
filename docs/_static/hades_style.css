@@ -1,0 +1,1018 @@
+/* =======================================================
+   Font Imports & Variables
+   ======================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+/* Caesar Dressing */
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+
+/* Young Serif */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+
+/* Lora */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* Google Icons */
+/* @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0'); */
+
+:root {
+    --bg-light: #FDFBFB;
+    --text-main: #333333;
+    --text-muted: #555555;
+    --text-dark: #181E21;
+    --card-bg: #FFFFFF;
+    --code-bg: #1E1E24;
+    --bg-page: #F6F4F0;
+    --border-color: rgba(0, 0, 0, 0.15);
+    --brand-orange: #F48723;
+    --brand-red: #A32325;
+    --brand-dark-red: #5C0B14;
+    --brand-highlight: #FFE5A3;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--brand-dark-red);
+    font-weight: 700;
+}
+
+/* Hidden h1 for keeping title in the nav bar, but hiding on the page (hero section acts as title */
+.hero-title-hidden h1 {
+    display: none;
+    /* Hides the default Sphinx <h1> */
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+}
+/* Optional: extra safety */
+div.section > h1:first-child.hero-title-hidden {
+    display: none;
+}
+
+/* =======================================================
+   Landing Page Layout 
+   ======================================================= */
+
+/* Base Styles */
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+}
+
+/* Hero Section Container */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: 
+        radial-gradient(125% 125% at 50% 90%, var(--bg-light) 40%, #e0a237 100%);
+    background-size: 100% 100%;
+    border-radius: 10px;
+}
+
+/* Multi-Blob Animated Magmatic Glow Container */
+.hero-glow {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 900px;
+    height: 380px;
+    pointer-events: none;
+    z-index: 0;
+}
+/* Center Red Orb */
+.hero-glow::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(224, 49, 30, 0.28) 0%, rgba(224, 49, 30, 0) 75%);
+    filter: blur(50px);
+    border-radius: 50%;
+    animation: glowPulse 6s ease-in-out infinite alternate;
+}
+/* Orange Orb */
+.hero-glow::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 60%;
+    width: 320px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(129, 5, 5, 0.32) 0%, rgba(255, 107, 53, 0) 70%);
+    filter: blur(45px);
+    border-radius: 50%;
+    animation: floatSlow 8s ease-in-out infinite alternate;
+}
+/* Amber Orb */
+.hero-glow-amber {
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    width: 350px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 159, 28, 0.25) 0%, rgba(255, 159, 28, 0) 70%);
+    filter: blur(55px);
+    border-radius: 50%;
+    animation: floatSlow 10s ease-in-out infinite alternate-reverse;
+}
+/* Orb Pulse Animations */
+@keyframes glowPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 1;
+    }
+}
+@keyframes floatSlow {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 50%);
+    }
+}
+
+/* Container for hero title and content */
+.hero-container {
+    position: relative;
+    z-index: 1;
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Hero Section Pill */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: #fff5f3;
+    border: 1px solid rgba(224, 49, 30, 0.15);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+/* Pill Dot */
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--brand-orange);
+}
+/* Main Hero Heading */
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-dark);
+    margin: 0 0 1rem 0;
+}
+/* Gradient Text in Hero Heading */
+.text-gradient {
+    background: linear-gradient(0deg, var(--brand-dark-red) 0%, var(--brand-orange) 100%);
+    background-clip: text;
+    font-weight: 900;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* font-family: 'Caesar Dressing', 'Young Serif', serif; */
+}
+/* Hero Subtitle */
+.hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: var(--text-main);
+    max-width: 720px;
+    line-height: 1.55;
+    margin: 0 0 1.5rem 0;
+}
+/* Bold within Hero Subtitle */
+.hero-subtitle strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+}
+
+.material-symbols-outlined.action-icon-hero {
+    font-size: 1.15rem;
+    color: var(--brand-red);
+    flex-shrink: 0;
+    user-select: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-features-anim {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(12px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-features-anim::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -0.5rem;
+    border-radius: inherit;
+    background: linear-gradient(120deg, var(--brand-red), var(--brand-orange), #ff4d4d, var(--brand-dark-red));
+    background-size: 200% 200%;
+    filter: blur(1rem);
+    opacity: 0.7;
+    animation: hero-features-gradient-shadow 6s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+}
+
+.hero-features-anim::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background 0.4s ease, background-color 0.4s ease;
+}
+
+/* Parent Hover States (Group Hover) */
+.hero-features-anim:hover::before {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.hero-features-anim:hover::after {
+    background: linear-gradient(120deg, var(--brand-red), var(--brand-orange), #ff4d4d, var(--brand-dark-red));
+    background-size: 200% 200%;
+    animation: hero-features-gradient-shadow 6s ease-in-out infinite;
+    transition: background 0.4s ease, background-color 0.4s ease;
+}
+
+/* Child Elements Reacting to Parent Hover with Smooth Transitions */
+.hero-features-anim:hover .action-item {
+    color: #ffffff;
+}
+
+.hero-features-anim:hover .action-icon-hero {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+@keyframes hero-features-gradient-shadow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.text-gradient-anim {
+    background: linear-gradient(120deg, var(--brand-red), var(--brand-orange), #ff4d4d, var(--brand-dark-red));
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    animation: text-gradient-shift 6s ease-in-out infinite;
+    /* font-family: 'Caesar Dressing', 'Young Serif', serif; */
+}
+
+@keyframes text-gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Feature Highlights Bar */
+.hero-features {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(12px);
+}
+/* Feature Item */
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+}
+/* Icons and Dividers in Feature Bar */
+.feature-icon {
+    width: 17px;
+    height: 17px;
+    color: var(--brand-orange);
+    flex-shrink: 0;
+}
+.feature-divider {
+    width: 1px;
+    height: 16px;
+    background-color: var(--border-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .hero-section {
+        padding-top: 2rem;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        border-radius: 12px;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .feature-divider {
+        display: none;
+    }
+}
+
+
+
+
+/* --- Section Header --- */
+.timeline-section-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.timeline-section-header:first-child {
+    margin-top: 0;
+}
+
+/* Badges */
+.timeline-title-badge {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    /* text-transform: uppercase; */
+    padding: 0.3rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--brand-dark-red);
+    color: var(--brand-dark-red);
+    background: linear-gradient(135deg, #fff0f0 0%, #fee0e2 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.timeline-attrib-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    margin-top: 0.15rem;
+    border-radius: 100px;
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    color: var(--brand-dark-red, #991b1b);
+    background: #fef2f2;
+}
+
+/* --- Feature Content Cards --- */
+.rst-timeline-item {
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+
+.rst-timeline-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.65rem;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease-in-out;
+}
+
+a.rst-timeline-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit;
+    position: relative;
+}
+
+a.rst-timeline-card-link .rst-timeline-card {
+    cursor: pointer;
+}
+
+/* Hover & Focus state for Linked Cards */
+a.rst-timeline-card-link:hover .rst-timeline-card,
+a.rst-timeline-card-link:focus-visible .rst-timeline-card {
+    border-color: #520529;
+    background: #ffffff;
+    /* transform: translateY(-2px); */
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+}
+
+/* Icon emphasis on card hover */
+a.rst-timeline-card-link:hover .feature-icon {
+    color: #0284c7;
+    transform: scale(1.1);
+}
+
+.rst-timeline-card:hover {
+    border-color: #520529;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Icon + Inline Title + Text Layout --- */
+.feature-inline-item {
+    display: flex;
+    align-items: flex-start;
+    /* Keeps icon at the top if text wraps to multiple lines */
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-inline-item:last-child {
+    margin-bottom: 0;
+}
+
+.feature-content {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    margin: 0 !important;
+}
+
+.feature-inline-title {
+    font-size: 125%;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-right: 2rem;
+}
+
+/* .feature-inline-title-main {
+    font-weight: 700;
+    color: var(--text-dark);
+} */
+
+
+
+/* =======================================================
+   Custom Landing Page Buttons
+   ======================================================= */
+.link-button {
+    font-size: 1rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--brand-red);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.link-button::after {
+    content: "\f061";
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5rem;
+    color: var(--brand-red);
+    margin-right: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Hover state for the fake button */
+.navigation-card:hover .link-button {
+    background-color: transparent;
+    color: var(--brand-red);
+    border: 2px solid var(--brand-red);
+}
+/* Hover state for the icon */
+.navigation-card:hover .link-button::after {
+    color: var(--brand-red);
+    margin-right: 0;
+    opacity: 1;
+}
+
+.navigation-card {
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease;
+    background-image:
+        repeating-radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.06) 0 0.7px, transparent 0.7px 6px);
+    mix-blend-mode: multiply;
+    background-size: "100% 100%";
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-card:hover {
+    border-color: var(--brand-red) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 21, 34, 0.08) !important;
+}
+.arrow-action::after {
+    position: absolute;
+    content: "\00A0➜";
+    font-size: 1.2rem;
+    color: var(--brand-red);
+    right: 0.7rem;
+    bottom: 0.7rem;
+}
+
+.blob-hover:hover {
+    background-color: rgba(255, 229, 163, 0.1);
+}
+
+/* Custom sd-card-title for navigation cards - rounded tag style */
+.navigation-card .sd-card-title {
+    display: inline-block;
+    background-color: rgba(139, 21, 34, 0.1);
+    color: var(--text-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px; /* Fully rounded */
+    border: 1px solid var(--brand-red);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.navigation-card .sd-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-card .link-button {
+    display: block;
+    margin-top: auto;
+}
+
+/* Custom Figure Caption Formatting */
+figcaption,
+figcaption .caption-text,
+figcaption .caption-text .caption-number {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: normal !important;
+}
+
+/* =======================================================
+   Sphinx Design (SD) Components Customization
+   ======================================================= */
+
+/* SD Cards Base */
+.sd-card {
+    border-radius: 12px !important;
+    transform: none !important; }
+
+/* The ^= means "class starts with 'highlight-'" */
+div[class^="highlight-"] {
+    background-color: #F5F5F5 !important;
+    border: 1px solid var(--brand-dark-red) !important;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    max-width: 750px;
+}
+
+/* Strip background/margins from the middle container */
+div[class^="highlight-"] > div.highlight {
+    background-color: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* Target your pre text area specifically inside those blocks */
+div[class^="highlight-"] pre {
+    background-color: transparent !important;
+    color: #333333 !important;
+    margin: 0 !important;
+    padding: 1rem;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    border: none !important;
+    overflow-x: auto;
+}
+
+/* Sidebar and Navigation (RTD Theme specific) */
+.wy-side-nav-search {
+    background-color: var(--brand-dark-red) !important;
+}
+
+.wy-breadcrumbs a.icon-home {
+    color: var(--brand-red);
+}
+
+.wy-nav-content {
+    max-width: 100%;
+}
+
+.wy-menu-vertical p.caption {
+    color: var(--brand-highlight) !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+/* =======================================================
+   Admonitions (Shibuya-Style ported to RTD)
+   ======================================================= */
+.rst-content .admonition {
+    background-color: #fafbfc !important;
+    border: none !important;
+    border-left: 4px solid #54aeff !important; 
+    border-radius: 4px !important;
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.rst-content .admonition .admonition-title {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 0 0.5rem 0 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    color: #0969da !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.rst-content .admonition .admonition-title::before {
+    font-family: 'FontAwesome';
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+.rst-content .admonition p.last, 
+.rst-content .admonition p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Info/Note */
+.rst-content .admonition.note,
+.rst-content .admonition.info {
+    border-left-color: #3b82f6 !important;
+    background-color: #eff6ff !important;
+}
+.rst-content .admonition.note .admonition-title,
+.rst-content .admonition.info .admonition-title { color: #2563eb !important; }
+.rst-content .admonition.note .admonition-title::before,
+.rst-content .admonition.info .admonition-title::before { content: "\f05a"; }
+
+/* Tip/Important */
+.rst-content .admonition.tip,
+.rst-content .admonition.hint,
+.rst-content .admonition.important {
+    border-left-color: #10b981 !important;
+    background-color: #ecfdf5 !important;
+}
+.rst-content .admonition.tip .admonition-title,
+.rst-content .admonition.hint .admonition-title,
+.rst-content .admonition.important .admonition-title { color: #059669 !important; }
+.rst-content .admonition.tip .admonition-title::before,
+.rst-content .admonition.hint .admonition-title::before { content: "\f0eb"; }
+.rst-content .admonition.important .admonition-title::before { content: "\f058"; }
+
+/* Warning */
+.rst-content .admonition.warning,
+.rst-content .admonition.attention {
+    border-left-color: #f59e0b !important;
+    background-color: #fffbeb !important;
+}
+.rst-content .admonition.warning .admonition-title,
+.rst-content .admonition.attention .admonition-title { color: #d97706 !important; }
+.rst-content .admonition.warning .admonition-title::before,
+.rst-content .admonition.attention .admonition-title::before { content: "\f071"; }
+
+/* Danger/Error (Themed to Petro Red) */
+.rst-content .admonition.danger,
+.rst-content .admonition.error {
+    border-left-color: var(--brand-red) !important;
+    background-color: #FDF7F7 !important; 
+}
+.rst-content .admonition.danger .admonition-title,
+.rst-content .admonition.error .admonition-title { color: var(--brand-dark-red) !important; }
+.rst-content .admonition.danger .admonition-title::before,
+.rst-content .admonition.error .admonition-title::before { content: "\f06a"; }
+
+/* =======================================================
+   Sphinx Design Tabs (Fallback styling)
+   ======================================================= */
+.sd-tab-content {
+    background: var(--card-bg);
+    border-radius: 0 0 8px 8px;
+    padding: 1em 1.5em;
+    color: var(--text-main);
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-left: 1px solid #dfdfdf;
+    margin-bottom: 2rem;
+}
+
+
+
+/* =======================================================
+   References
+   ======================================================= */
+
+.citation {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.citation p {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-indent: 0 !important;
+}
+
+.citation .label,
+.citation .backrefs {
+    display: none !important;
+}
+
+
+/* Styling for Google Material Symbols */
+.material-symbols-outlined.feature-icon {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    user-select: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    background: var(--card-bg, #ffffff);
+    /* Masks the timeline line behind the icon */
+    z-index: 1;
+}
+
+/* Google Icons in the bottom of the main hero section */
+.material-symbols-outlined.feature-icon-hero {
+    font-size: 1.15rem;
+    color: var(--brand-orange);
+    flex-shrink: 0;
+    user-select: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover */
+.material-symbols-outlined.feature-icon-hero:hover {
+    color: var(--brand-dark-red);
+    transform: scale(1.05);
+}
+
+/* --- Section Header --- */
+/* --- 3-Column Feature Layout --- */
+.rst-timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    row-gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.feature-row {
+    display: grid;
+    grid-template-columns: auto 210px 1fr;
+    /* Col 1: Icon auto, Col 2: Fixed title width, Col 3: Flexible content */
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Column 1: Icon Styling */
+.feature-col-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    /* margin-top: 0.15rem; */
+    /* Optical alignment with text first-line */
+}
+
+.material-symbols-outlined.feature-icon {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    user-select: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Column 2: Title Styling */
+.feature-col-title {
+    /* text-align: right; */
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.feature-inline-title-main {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--brand-red);
+}
+
+/* Column 3: Content Styling */
+.feature-col-content {
+    font-size: 1rem;
+    color: var(--text-main);
+    /* line-height: 1.5; */
+    margin: 0 !important;
+}
+
+/* --- Responsive Layout for Mobile --- */
+@media (max-width: 640px) {
+    .feature-row {
+        grid-template-columns: auto 1fr;
+        gap: 0.75rem;
+    }
+
+    .feature-col-title {
+        grid-column: 2 / 3;
+    }
+
+    .feature-col-content {
+        grid-column: 1 / -1;
+        padding-left: calc(1.15rem + 0.75rem);
+        /* Indents content neatly under the icon and title */
+    }
+}
+
+
+
+
+/* 
+hr {
+    */
+hr.docutils {
+    border: none;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--brand-orange) 0%, var(--brand-dark-red) 50%, var(--brand-orange) 100%);
+    position: relative;
+    overflow: visible;
+    border-radius: 2px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+/* The main rounded rectangle container */
+.hades-branding-card {
+    background-color: var(--brand-dark-red);
+    
+    background-image: radial-gradient(125% 125% at 50% 10%, var(--brand-dark-red) 40%, var(--text-dark) 100%);
+    background-size: "100% 100%";
+
+    /* ensure gradient is above background */
+    /* background-blend-mode: overlay; */
+
+    border-radius: 8px;
+    /* Slightly rounded */
+    padding: 2.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 10px 30px rgba(92, 11, 20, 0.15);
+    /* Soft red shadow */
+    font-family: inherit;
+    /* Inherits your Sphinx font */
+    color: var(--bg-page);
+    /* High contrast off-white text */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Header Section */
+.branding-header h3 {
+    color: var(--brand-highlight);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    border: none;
+}
+
+.branding-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Grid for the icons and explanations */
+.branding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.branding-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    /* Subtle inner card effect */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 229, 163, 0.1);
+}
+
+/* Minimal SVGs */
+.branding-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--brand-highlight);
+}
+.branding-item h4 {
+    color: var(--brand-highlight);
+    margin: 0;
+    font-size: 1.25rem;
+    border: none;
+}
+.branding-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--bg-page);
+}
+.branding-item span {
+    font-size: 0.85rem;
+    color: var(--bg-page);
+    opacity: 0.8;
+    margin-left: 1.5rem;
+}
+

@@ -1,0 +1,12 @@
+# Include non-Python assets that live inside the packages
+recursive-include src/hades/assets *
+recursive-include src/hades_plouton/assets *
+
+global-exclude __pycache__/*
+global-exclude *.py[cod] *.pyd *.so *.dylib
+
+# Optional but recommended
+include pyproject.toml
+include README*
+include LICENSE*
+include *.md

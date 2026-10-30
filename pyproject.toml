@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hades-obol" # PyPi name
+version = "0.9.0" 
+description = "Fractional crystallisation modelling and solving for petrology"
+keywords = ["petrology", "fractional crystallisation"]
+readme = "README.md"
+requires-python = ">=3.10" 
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Jack Lee Smith"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+]
+
+# Core dependencies
+dependencies = [
+    "matplotlib",
+    "numba",
+    "numpy",
+    "openpyxl",
+    "platformdirs",
+    "scipy",
+    "typst",
+]
+
+# Optional dependencies: e.g., $ pip install hades-obol[dev,plouton]
+[project.optional-dependencies]
+# For running the GUI locally
+plouton = [
+    "pillow",
+    "tksheet",
+]
+# Only required for building docs and/or GUI
+dev = [
+    "pillow",
+    "pyinstaller",
+    "pytest",
+    "sphinx",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-bibtex",
+    "sphinx-design",
+    "tksheet",
+]
+
+# CLI entry point for local GUI launch: $ plouton
+[project.scripts]
+plouton = "hades_plouton.app:main" 
+
+# ==========================================
+# TOOL CONFIGURATIONS
+# ==========================================
+
+# Configure pytest 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"] # Ensures pytest can find the src/ directory
+
+# Configure ruff (Modern, super-fast replacement for flake8 and black)
+[tool.ruff]
+line-length = 88
+src = ["src", "tests"]
+target-version = "py39"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+# Tell setuptools this package contains compiled platform extensions 
+# (empty sources prevents setuptools from trying to compile them itself)
+ext-modules = [
+    { name = "hades.phases", sources = [] }
+]
+
+# Configure standard packaging behaviour to include assets folders
+[tool.setuptools.packages.find]
+where = ["src"]     # module folder is the import name
+include = ["hades", "hades.*", "hades_plouton", "hades_plouton.*"]
+
+# Tell setuptools to include non-Python files (assets) in the distribution
+[tool.setuptools.package-data]
+hades = [
+    "assets/**/*",
+    "*.pyd",
+    "*.so",
+    "*.dylib",
+]
+hades_plouton = [
+    "assets/**/*",
+]
+
+[project.urls]
+Homepage = "https://github.com/Jack6228/Hades"
+Documentation = "https://hades-obol.readthedocs.io/en/latest/"
+# Paper = ""

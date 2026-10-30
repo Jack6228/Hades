@@ -1,0 +1,45 @@
+Thank you for downloading Hades!
+
+Because Hades is a free, open-source project, we do not currently pay a corporate fee to Microsoft for an official software publisher certificate. Because of this, Windows may try to block or warn you when you open the installer.
+
+We are working to acquire a certificate, but in the meantime, you may see a blue warning screen that says "Windows protected your PC" when you try to run the installer.
+
+Here are several options for getting past this warning and installing Hades, if necessary. Choose the method that works best for you while we work to obtain a proper certificate for a future release.
+
+---
+
+OPTION 1: THE QUICK CLICK (IF YOU SEE "MORE INFO")
+
+1. Double-click the installer file you downloaded, such as HadesInstallerV0.9.0.exe
+2. If a blue window appears saying "Windows protected your PC",
+3. Click the small link that says "More info"
+4. Click the "Run anyway" button that appears. The installation will start normally.
+
+OPTION 2: RUN AS ADMINISTRATOR (IF "RUN ANYWAY" IS MISSING)
+
+1. Right-click the installer file you downloaded, such as HadesInstallerV0.9.0.exe
+2. Select "Run as administrator" from the context menu.
+
+This option may not be available if you are, for example, using a work computer with restricted permissions. If you cannot run as administrator, try the terminal method below.
+
+OPTION 3: THE TERMINAL METHOD (IF "RUN ANYWAY" IS MISSING)
+
+If neither of the above options work, you can bypass the warning by running the installer through the Command Prompt, even if you do not have administrator privileges:
+
+Ensure that you have downloaded the installer file (e.g., HadesInstallerV0.9.0.exe) to your Downloads folder.
+
+1. Open the Start Menu (e.g., click the Windows icon in the bottom left corner of your screen or press the Windows key on your keyboard).
+2. Type cmd and press Enter. A black Command Prompt window will open.
+3. Type the following command and press Enter to go to your Downloads folder:
+
+   cd %USERPROFILE%\Downloads
+
+4. Type the name of your installer and press Enter to start it. You can type the first few letters and press Tab to complete the name:
+
+   HadesInstallerV0.9.0.exe
+
+5. Follow the on-screen instructions to finish the installation.
+
+Please raise any issues you encounter on the Hades GitHub Issues page: https://github.com/Jack6228/Hades/issues
+
+View the installation page of the Hades documentation online at https://hades-obol.readthedocs.io/en/latest/overview/installation.html

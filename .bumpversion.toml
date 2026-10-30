@@ -1,0 +1,104 @@
+[tool.bumpversion]
+current_version = "0.9.0"
+commit = true
+tag = true
+tag_name = "v{new_version}"
+
+# Usage:
+# To increase by a major version:
+#   bump-my-version bump major
+# To increase by a minor version:
+#   bump-my-version bump minor
+# To increase by a patch version:
+#   bump-my-version bump patch
+# Dry run:
+# bump-my-version bump patch --dry-run --verbose
+
+# ---- META ---- #
+[[tool.bumpversion.files]]
+filename = "CITATION.cff"
+search = 'version: {current_version}'
+replace = 'version: {new_version}'
+
+[[tool.bumpversion.files]]
+filename = "README.md"
+search = 'v{current_version}'
+replace = 'v{new_version}'
+
+[[tool.bumpversion.files]]
+filename = "INSTALL_INSTRUCTIONS.txt"
+search = 'V{current_version}'
+replace = 'V{new_version}'
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "HadesSetup.iss"
+search = '#define MyAppVersion "{current_version}"'
+replace = '#define MyAppVersion "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "HadesSetup.iss"
+search = 'OutputBaseFilename=HadesInstallerV{current_version}'
+replace = 'OutputBaseFilename=HadesInstallerV{new_version}'
+
+# ---- GUI ---- #
+[[tool.bumpversion.files]]
+filename = "src/hades_plouton/app.py"
+#search = 'hades.plouton.app.{{"{current_version}}"}'
+#replace = 'hades.plouton.app.{{"{new_version}}"}'
+
+# ---- API ---- #
+[[tool.bumpversion.files]]
+filename = "src/hades/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "src/hades/updates.py"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+# ---- DOCS ---- #
+[[tool.bumpversion.files]]
+filename = "docs/conf.py"
+search = "release = '{current_version}'"
+replace = "release = '{new_version}'"
+
+[[tool.bumpversion.files]]
+filename = "docs/overview/installation.rst"
+search = 'V{current_version}'
+replace = 'V{new_version}'
+
+[[tool.bumpversion.files]]
+filename = "docs/api/python_installation.rst"
+search = 'version number ({current_version})'
+replace = 'version number ({new_version})'
+
+[[tool.bumpversion.files]]
+filename = "docs/api/index.rst"
+search = 'v{current_version}'
+replace = 'v{new_version}'
+
+[[tool.bumpversion.files]]
+filename = "docs/api/modules/obol.rst"
+search = 'v{current_version}'
+replace = 'v{new_version}'
+
+[[tool.bumpversion.files]]
+filename = "docs/api/modules/visualisations.rst"
+search = 'v{current_version}'
+replace = 'v{new_version}'
+
+[[tool.bumpversion.files]]
+filename = "docs/api/tutorial.rst"
+search = 'v{current_version}'
+replace = 'v{new_version}'
+
+[[tool.bumpversion.files]]
+filename = "docs/reference/citation.rst"
+search = 'v{current_version}'
+replace = 'v{new_version}'

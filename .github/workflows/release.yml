@@ -1,0 +1,197 @@
+name: Release Pipeline
+
+on:
+  push:
+    tags:
+      - 'v*' # A version tag starts a release.
+
+jobs:
+  # Build one wheel per supported Python/platform combination.
+  # The native phases extension is compiled inside each cibuildwheel
+  # environment, so every wheel receives an extension compatible with its
+  # own Python ABI and operating system.
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          # This is the Python used to run cibuildwheel itself. cibuildwheel
+          # creates the individual CPython 3.10-3.13 build environments below.
+          python-version: "3.13"
+
+      - name: Build ABI-specific wheels
+        uses: pypa/cibuildwheel@v2.19.2
+        env:
+          # Build CPython wheels for 64-bit targets & Mac 3.10 trough 3.14
+          CIBW_BUILD: >-
+            cp310-win_amd64 cp310-manylinux_x86_64 cp310-macosx_*
+            cp311-win_amd64 cp311-manylinux_x86_64 cp311-macosx_*
+            cp312-win_amd64 cp312-manylinux_x86_64 cp312-macosx_*
+            cp313-win_amd64 cp313-manylinux_x86_64 cp313-macosx_*
+
+          CIBW_PRERELEASE_PYTHONS: "True"
+
+          # CIBW_BEFORE_BUILD runs inside each isolated wheel environment.
+          # Install numba there, then compile into src/hades before setuptools builds the wheel.
+          CIBW_BEFORE_BUILD: >-
+            python -m pip install --upgrade pip &&
+            python -m pip install --only-binary=:all: llvmlite numba setuptools scipy &&
+            python -c "import os, runpy; os.chdir('src/hades'); runpy.run_path('phases_precomp.py', run_name='__main__')"
+
+      - name: Validate wheel tags
+        shell: bash
+        run: |
+          for wheel in wheelhouse/*.whl; do
+            case "$wheel" in
+              *-py3-none-any.whl)
+                echo "ERROR: Native wheel incorrectly tagged as universal: $wheel"
+                exit 1
+                ;;
+            esac
+          done
+
+      - name: Upload wheels to GitHub Actions artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          # The release job merges these artifacts before publishing.
+          name: cibuildwheel-${{ matrix.os }}
+          path: ./wheelhouse/*.whl
+
+  # Build the Windows GUI executable/installer, create the source distribution,
+  # publish the Python distributions, and create the GitHub release.
+  build-windows-assets:
+    needs: build_wheels
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          # The GUI executable is currently built for CPython 3.13 on Windows.
+          python-version: "3.13"
+          cache: 'pip'
+
+      - name: Install native-extension build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numba setuptools scipy
+
+      - name: Compile the Windows CPython 3.13 extension
+        working-directory: src/hades
+        run: python phases_precomp.py
+
+      - name: Verify the compiled extension
+        working-directory: src/hades
+        run: |
+          python -c "import phases; print(phases.__file__)"
+
+      - name: Install local package and GUI dependencies
+        run: |
+          python -m pip install ".[dev]"
+          python -m pip install build
+
+      - name: Run test suite prior to release
+        run: pytest
+
+      - name: Install Windows compilation tools (UPX & Inno Setup)
+        run: |
+          # These tools are used only for the Windows executable/installer.
+          choco install upx innosetup -y
+
+      - name: Build source distribution
+        run: python -m build --sdist --outdir dist-sdist
+
+      - name: Build Windows Executable & Installer
+        run: python scripts/build_installer.py
+
+      # Upload the Windows installer and source distribution as artifacts
+      - name: Upload Windows Installer and Source Dist as Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-and-sdist-artifacts
+          path: |
+            installer_dist/*.exe
+            dist-sdist/*.tar.gz
+
+  # Publish to PyPI (Runs on Linux because the PyPA action requires Linux)
+  pypi-publish:
+    needs: [build_wheels, build-windows-assets]
+    runs-on: ubuntu-latest
+    
+    environment:
+      # name: testpypi
+      # url: https://test.pypi.org/p/hades-obol
+      name: pypi
+      url: https://pypi.org/project/hades-obol
+
+    permissions:
+      id-token: write
+
+    steps:
+      # Merge the platform-specific wheels into the directory containing the source distribution.
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: all-artifacts
+          merge-multiple: true
+
+      # Flatten any nested artifact folders (like dist-sdist) so only flat package files remain
+      - name: Flatten artifacts directory for PyPI
+        run: |
+          # Move nested files to root
+          find all-artifacts/ -mindepth 2 -type f -exec mv {} all-artifacts/ \;
+          rm -rf all-artifacts/*/
+          
+          # Remove the Windows .exe installer so PyPI doesn't try to parse it
+          rm -f all-artifacts/*.exe
+
+      - name: Debug artifact directory contents
+        run: |
+          echo "Listing all files in all-artifacts/:"
+          find all-artifacts/ -maxdepth 2 -print
+
+      # Publish Python distributions to PyPI using OIDC Trusted Publishing.
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: all-artifacts/
+          # repository-url: https://test.pypi.org/legacy/   # only for testing remove this line for production
+
+  github-release:
+    needs: [build_wheels, build-windows-assets]
+    runs-on: windows-latest
+    
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Windows Installer Asset
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-and-sdist-artifacts
+          path: downloaded-assets
+
+      - name: Extract Release Notes
+        run: python .github/scripts/extract_release_notes.py ${{ github.ref_name }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: RELEASE_NOTES.md
+          files: |
+            # The installer is distributed with the GitHub release.
+            downloaded-assets/**/*.exe
+            INSTALL_INSTRUCTIONS.txt

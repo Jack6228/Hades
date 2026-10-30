@@ -1,0 +1,14 @@
+matplotlib
+numpy
+openpyxl
+platformdirs
+scipy
+typst
+numba
+# Pillow              # plouton + dev
+# pyinstaller         # dev
+# pytest              # dev
+# sphinx              # dev
+# sphinx_design       # dev
+# sphinx_rtd_theme    # dev
+# tksheet             # plouton + dev
