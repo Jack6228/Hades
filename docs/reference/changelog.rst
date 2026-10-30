@@ -21,7 +21,7 @@ Changelog
 
 All versioned updates to Hades are documented on this page.
 
-v0.8.23 - 30th October 2026
+v0.9.0 - 30th October 2026
 ---------------------------
 
 **First pre-release version of Hades!**
