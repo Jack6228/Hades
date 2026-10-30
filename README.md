@@ -60,7 +60,7 @@ Download the latest installer from [Releases](https://github.com/Jack6228/Hades/
 Once installed, find a quickstart, how-to guides, and a user manual in the [documentation](https://hades-obol.readthedocs.io/en/latest/?badge=latest).
 
 [![Docs](https://img.shields.io/badge/Docs-Windows_Installation-3776AB?logo=readthedocs)](https://hades-obol.readthedocs.io/en/latest/overview/installation.html)
-[![Release](https://img.shields.io/badge/Latest_Release-v0.9.0-00897B?logo=github)](https://github.com/Jack6228/Hades/releases/tag/v0.9.0)
+[![Release](https://img.shields.io/badge/Latest_Release-v0.9.1-00897B?logo=github)](https://github.com/Jack6228/Hades/releases/tag/v0.9.1)
 
 ### Python Package
 
@@ -119,7 +119,7 @@ If you use Hades in research, please use the following citation until a paper is
   month        = oct,
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {v0.9.0},
+  version      = {v0.9.1},
   doi          = {https://zenodo.org/record/XXXXXXX},
   url          = {https://doi.org/10.5281/zenodo.21555223},
 }

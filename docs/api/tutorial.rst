@@ -12,7 +12,7 @@
 
       <div class="hero-badge">
          <span class="badge-dot"></span>
-         <span>v0.9.0</span>
+         <span>v0.9.1</span>
       </div>
       </div>
    </section>

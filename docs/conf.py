@@ -6,7 +6,7 @@ year = str(datetime.datetime.now().year)
 project = 'Hades'
 copyright = f'{year}, Jack Lee Smith et al'
 author = 'Jack Lee Smith'
-release = '0.9.0'
+release = '0.9.1'
 
 # General Configuration
 extensions = [

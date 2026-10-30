@@ -44,11 +44,11 @@ The standalone desktop application requires no coding knowledge, simply follow t
       
       The latest Windows installer is only available from the offical `Hades GitHub Releases <https://github.com/Jack6228/Hades/releases>`_ page. 
 
-      Click the ``HadesInstallerV0.9.0.exe`` file to download the installer. The latest version is recommended, but you can also download older versions if needed.
+      Click the ``HadesInstallerV0.9.1.exe`` file to download the installer. The latest version is recommended, but you can also download older versions if needed.
 
       **Run the Installer**
        
-      1. Locate the downloaded file (e.g., ``HadesInstallerV0.9.0.exe``).
+      1. Locate the downloaded file (e.g., ``HadesInstallerV0.9.1.exe``).
       2. Double-click the file to run it. 
       3. If Windows displays a "Windows protected your PC" warning, click **More info** > **Run anyway**.
       4. Follow the on-screen instructions to complete the installation.
@@ -64,7 +64,7 @@ The standalone desktop application requires no coding knowledge, simply follow t
 
          **Option A: Run as Administrator**
 
-         1. Right-click the installer file you downloaded, such as ``HadesInstallerV0.9.0.exe``.
+         1. Right-click the installer file you downloaded, such as ``HadesInstallerV0.9.1.exe``.
          2. Select **Run as administrator** from the context menu.
 
          **Option B: Run via Command Prompt**
@@ -83,7 +83,7 @@ The standalone desktop application requires no coding knowledge, simply follow t
 
             .. code-block:: bash
 
-               HadesInstallerV0.9.0.exe
+               HadesInstallerV0.9.1.exe
 
    .. tab-item:: macOS & Linux
       :sync: maclinux

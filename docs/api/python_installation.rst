@@ -68,7 +68,7 @@ To ensure everything was installed properly, open a Python terminal and try impo
    import hades
    print(hades.__version__)
 
-You should see the current version number (0.9.0).
+You should see the current version number (0.9.1).
 
 You can always check if you are running the latest version of Hades by running:
 

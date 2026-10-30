@@ -10,14 +10,14 @@ Here are several options for getting past this warning and installing Hades, if 
 
 OPTION 1: THE QUICK CLICK (IF YOU SEE "MORE INFO")
 
-1. Double-click the installer file you downloaded, such as HadesInstallerV0.9.0.exe
+1. Double-click the installer file you downloaded, such as HadesInstallerV0.9.1.exe
 2. If a blue window appears saying "Windows protected your PC",
 3. Click the small link that says "More info"
 4. Click the "Run anyway" button that appears. The installation will start normally.
 
 OPTION 2: RUN AS ADMINISTRATOR (IF "RUN ANYWAY" IS MISSING)
 
-1. Right-click the installer file you downloaded, such as HadesInstallerV0.9.0.exe
+1. Right-click the installer file you downloaded, such as HadesInstallerV0.9.1.exe
 2. Select "Run as administrator" from the context menu.
 
 This option may not be available if you are, for example, using a work computer with restricted permissions. If you cannot run as administrator, try the terminal method below.
@@ -26,7 +26,7 @@ OPTION 3: THE TERMINAL METHOD (IF "RUN ANYWAY" IS MISSING)
 
 If neither of the above options work, you can bypass the warning by running the installer through the Command Prompt, even if you do not have administrator privileges:
 
-Ensure that you have downloaded the installer file (e.g., HadesInstallerV0.9.0.exe) to your Downloads folder.
+Ensure that you have downloaded the installer file (e.g., HadesInstallerV0.9.1.exe) to your Downloads folder.
 
 1. Open the Start Menu (e.g., click the Windows icon in the bottom left corner of your screen or press the Windows key on your keyboard).
 2. Type cmd and press Enter. A black Command Prompt window will open.
@@ -36,7 +36,7 @@ Ensure that you have downloaded the installer file (e.g., HadesInstallerV0.9.0.e
 
 4. Type the name of your installer and press Enter to start it. You can type the first few letters and press Tab to complete the name:
 
-   HadesInstallerV0.9.0.exe
+   HadesInstallerV0.9.1.exe
 
 5. Follow the on-screen instructions to finish the installation.
 

@@ -3,7 +3,7 @@
 ; Non-commercial use only
 
 #define MyAppName "Hades"
-#define MyAppVersion "0.9.0"
+#define MyAppVersion "0.9.1"
 #define MyAppPublisher "Jack Lee Smith"
 #define MyAppURL "https://hades-obol.readthedocs.io/en/latest/"
 #define MyAppExeName "Hades.exe"
@@ -37,7 +37,7 @@ DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=commandline
 OutputDir=.\installer_dist
-OutputBaseFilename=HadesInstallerV0.9.0
+OutputBaseFilename=HadesInstallerV0.9.1
 SetupIconFile=.\src\hades_plouton\assets\hades_icon_dark.ico
 SolidCompression=yes
 WizardStyle=modern dynamic windows11

@@ -12,7 +12,7 @@
 
       <div class="hero-badge">
          <span class="badge-dot"></span>
-         v0.9.0
+         v0.9.1
       </div>
       </div>
    </section>
@@ -44,7 +44,7 @@ Hastie, A. R., Smith, J. L, *et al.* Hades: Advanced petrological modelling soft
       month        = oct,
       year         = 2026,
       publisher    = {Zenodo},
-      version      = {v0.9.0},
+      version      = {v0.9.1},
       doi          = {},
       url          = {},
    }

@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 
 # ---- Metadata ----
 
-__version__ = "0.9.0"
+__version__ = "0.9.1"
 __author__ = 'Jack Lee Smith, Alan Hastie, Lindsay Young, Isobel Nash, Godfrey Fitton, Sally Law'
 __license__ = 'BSD 3-Clause License'
 __copyright__ = 'Copyright (c) 2026 Jack Lee Smith'

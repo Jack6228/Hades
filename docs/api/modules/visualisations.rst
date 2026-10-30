@@ -12,7 +12,7 @@
 
       <div class="hero-badge">
          <span class="badge-dot"></span>
-         <span>API Reference &nbsp;&nbsp;|&nbsp;&nbsp; v0.9.0</span>
+         <span>API Reference &nbsp;&nbsp;|&nbsp;&nbsp; v0.9.1</span>
       </div>
       </div>
    </section>

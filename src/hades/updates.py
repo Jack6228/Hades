@@ -17,7 +17,7 @@ def check_for_updates(gui=False) -> None:
         If True, the function will return a tuple (update_available, latest_version) instead of printing to the console.
         Default is False.
     """
-    version = "0.9.0"
+    version = "0.9.1"
     url = "https://api.github.com/repos/Jack6228/Hades/releases/latest"
 
     try:

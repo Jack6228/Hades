@@ -1881,7 +1881,7 @@ def main() -> None:
     """Main entry point for the Hades Plouton GUI application."""
 
     try:
-        myappid = f'hades.plouton.app.{"0.9.0"}'
+        myappid = f'hades.plouton.app.{"0.9.1"}'
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
     except Exception:
         pass
