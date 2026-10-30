@@ -17,7 +17,7 @@ authors:
     affiliation: "University of Edinburgh"
   - family-names: "Nash"
     given-names: "Isobel J"
-    orcid: "https://orcid.org/"
+    orcid: "https://orcid.org/0009-0001-6030-8037"
     affiliation: "University of Edinburgh"
   - family-names: "Law"
     given-names: "Sally"
@@ -35,8 +35,8 @@ keywords:
   - Fractional crystallisation (and assimilation)
   - Secondary magmatic differentiation
 version: 0.9.0
-doi: "zenodo...xxx"
-date-released: "29-10-2026"
+# doi: "zenodo...xxx"
+date-released: "2026-10-30"
 repository-code: "https://github.com/Jack6228/Hades"
 license: "BSD-3-Clause"
 url: "https://hades-obol.readthedocs.io/en/latest/"
