@@ -10,7 +10,7 @@ python:
     - method: pip
       path: .
       extra_requirements:
-        - docs
+        - dev
 
 # If using Sphinx, tell it where the conf.py is
 sphinx:
