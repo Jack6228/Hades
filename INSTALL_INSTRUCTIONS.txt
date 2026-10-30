@@ -6,6 +6,8 @@ We are working to acquire a certificate, but in the meantime, you may see a blue
 
 Here are several options for getting past this warning and installing Hades, if necessary. Choose the method that works best for you while we work to obtain a proper certificate for a future release.
 
+If you are unable to download the .exe file from GitHub at all, see the instructions at the bottom of this file.
+
 ---
 
 OPTION 1: THE QUICK CLICK (IF YOU SEE "MORE INFO")
@@ -43,3 +45,21 @@ Ensure that you have downloaded the installer file (e.g., HadesInstallerV0.9.1.e
 Please raise any issues you encounter on the Hades GitHub Issues page: https://github.com/Jack6228/Hades/issues
 
 View the installation page of the Hades documentation online at https://hades-obol.readthedocs.io/en/latest/overview/installation.html
+
+---
+
+Unable to download the .exe file from GitHub?
+
+If you are unable to download the .exe file from GitHub, you can download the file through the terminal. 
+
+1. Open the Start Menu (e.g., click the Windows icon in the bottom left corner of your screen or press the Windows key on your keyboard).
+2. Type cmd and press Enter. A black Command Prompt window will open.
+3. Type the following command and press Enter to go to your Downloads folder:
+
+   cd %USERPROFILE%\Downloads
+
+4. Type the following command and press Enter to download the installer file:
+
+   wget -O HadesInstallerV0.9.1.exe https://github.com/Jack6228/Hades/releases/download/v0.9.1/HadesInstallerV0.9.1.exe
+
+The .exe file will be downloaded to your Downloads folder. You can then follow the instructions above to run the installer.

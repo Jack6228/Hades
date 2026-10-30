@@ -641,7 +641,7 @@ div[class^="highlight-"] {
     border-radius: 6px;
     margin: 1.5rem 0;
     overflow: hidden;
-    max-width: 750px;
+    max-width: 1000px;
 }
 
 /* Strip background/margins from the middle container */

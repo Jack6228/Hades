@@ -1,8 +1,8 @@
 <div align="center">
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Jack6228/Hades/main/docs/assets/HadesLogo_Dark_Text_Transparent.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Jack6228/Hades/main/docs/assets/HadesLogo_Light_Icon_Transparent.png">
-    <img alt="Hades Logo" src="https://raw.githubusercontent.com/Jack6228/Hades/main/docs/assets/HadesLogo_Light_Icon_Transparent.png" width="400">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Jack6228/Hades/main/docs/assets/HadesLogo_Light_Text_Transparent.png">
+    <img alt="Hades Logo" src="https://raw.githubusercontent.com/Jack6228/Hades/main/docs/assets/HadesLogo_Light_Text_Transparent.png" width="300">
 </picture>
 <br>
   <sup style="font-family: monospace; font-weight: bold; letter-spacing: 2px; font-size: 24px;">[BETA]</sup>
@@ -33,9 +33,10 @@ The software is primarily available as a standalone Windows application, but als
 
 Hades is designed to be easy-to-use, with no prior programming knowledge, yet enables users to perform advanced modelling: customising a range of parameters (K<sub>D</sub> values, mineral compositions, etc.) as well as perform trace element modelling and visualisation of results.
 
+<br>
 <div align="center">
     <picture>
-        <img src="https://raw.githubusercontent.com/Jack6228/Hades/main/docs/assets/HadesHomepage.png" alt="The Hades Interface" width="600">
+        <img src="https://raw.githubusercontent.com/Jack6228/Hades/main/docs/assets/HadesHomepage.png" alt="The Hades Interface" width="600" style="border-radius: 2px;">
     </picture>
 </div>
 
@@ -72,7 +73,7 @@ Find the Python quickstart, API and example usage in the [documentation](https:/
 
 Alternatively, see Hades in action and run the Ontong Java Plateau case study in a [Google Colab Notebook](https://colab.research.google.com/github/Jack6228/hades/blob/main/examples/indonesia/ontong_java_plateau.ipynb), or access all other case studies below:
 
-[![Colab](https://img.shields.io/badge/Colab-Notebooks-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/Jack6228/hades/blob/main/examplesindonesia/ontong_java_plateau.ipynb)
+[![Colab](https://img.shields.io/badge/Colab-Notebooks-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/Jack6228/hades/blob/main/examples/indonesia/ontong_java_plateau.ipynb)
 [![Docs](https://img.shields.io/badge/Docs-Python_Installation-3776AB?logo=readthedocs)](https://hades-obol.readthedocs.io/en/latest/api/python_installation.html)
 [![Docs](https://img.shields.io/badge/Docs-Case_Studies-00897B?logo=readthedocs)](https://hades-obol.readthedocs.io/en/latest/case_studies.html)
 
@@ -120,8 +121,8 @@ If you use Hades in research, please use the following citation until a paper is
   year         = {2026},
   publisher    = {Zenodo},
   version      = {v0.9.1},
-  doi          = {https://zenodo.org/record/XXXXXXX},
-  url          = {https://doi.org/10.5281/zenodo.21555223},
+  doi          = {https://zenodo.org/record/23808870},
+  url          = {https://doi.org/10.5281/zenodo.23808869},
 }
 ```
 

@@ -601,7 +601,7 @@ class HadesGUI:
             padding=2,
         )
         update_link.pack(side=LEFT)
-        update_link.bind("<Button-1>", lambda _event: self.check_for_updates())
+        update_link.bind("<Button-1>", lambda _event: self.handle_update_check())
 
         self.main_pane = ttk.PanedWindow(self.root, orient=HORIZONTAL)
         self.main_pane.pack(fill=BOTH, expand=True, padx=10, pady=10)
@@ -686,18 +686,31 @@ class HadesGUI:
                 print(f"Error: Could not open online documentation at {docs_url}: {e}") 
                 self._log("Documentation not reachable - search online")
 
-    def check_for_updates(self) -> None:
+    def handle_update_check(self) -> None:
         from hades.updates import check_for_updates
         from tkinter import messagebox
+        
         available, latest_version = check_for_updates(gui=True)
+        
         if available:
-            messagebox.showinfo("Update Available", f"A new version of Hades is available: {latest_version}. Please visit the Hades GitHub page to download the latest version.")
+            messagebox.showinfo(
+                "Update Available", 
+                f"A new version of Hades is available: {latest_version}. Please visit the Hades GitHub page to download the latest version."
+            )
             self._log(f"Update available: {latest_version}.")
         else:
             if latest_version is not None:
+                # ADDED: Show a popup so the user knows they are up-to-date
+                messagebox.showinfo(
+                    "Up to Date", 
+                    f"You are using the latest version of Hades (v{latest_version})."
+                )
                 self._log("You are using the latest version of Hades.")
             else:
-                messagebox.showinfo("Update Check", "Could not check for updates. Note that this function requires an internet connection.\nCheck manually at https://github.com/Jack6228/Hades.")
+                messagebox.showinfo(
+                    "Update Check", 
+                    "Could not check for updates. Note that this function requires an internet connection.\nCheck manually at https://github.com/Jack6228/Hades."
+                )
                 self._log("Could not check for updates.")
 
     def create_title_section(self, parent, row) -> None:

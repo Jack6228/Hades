@@ -28,8 +28,6 @@ How to Cite
 -----------
 Please cite the standard software release as follows:
 
-.. TODO
-
 **APA Format:**
 
 Hastie, A. R., Smith, J. L, *et al.* Hades: Advanced petrological modelling software
@@ -38,16 +36,17 @@ Hastie, A. R., Smith, J. L, *et al.* Hades: Advanced petrological modelling soft
 
 .. code-block:: none
 
-   @software{smith_hades_2026,
-      author       = {Hastie, A. R. and Smith, J. L., Nash, I. J, Young, L. A., Law, S. and Fitton, J. G.},
-      title        = {Hades: }
-      month        = oct,
+   @software{smith_2026_Hades,
+      title        = {Hades: a new mass balance program to model fractional crystallisation and assimilation in igneous rocks},
+      author       = {Smith, Jack Lee and Hastie, Alan R and Young, Lindsay A and Nash, Isobel J and Law, Sally and Fitton, Godfrey},
       year         = 2026,
+      month        = oct,
       publisher    = {Zenodo},
-      version      = {v0.9.1},
-      doi          = {},
-      url          = {},
+      doi          = {10.5281/zenodo.23808870},
+      url          = {https://doi.org/10.5281/zenodo.23808870},
+      version      = {v0.9.1}
    }
+
 
 License
 -------

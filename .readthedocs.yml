@@ -12,6 +12,6 @@ python:
       extra_requirements:
         - dev
 
-# If using Sphinx, tell it where the conf.py is
+# Tell Sphinx where conf.py is
 sphinx:
   configuration: docs/conf.py

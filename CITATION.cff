@@ -27,7 +27,7 @@ authors:
     given-names: "Godfrey"
     orcid: "https://orcid.org/0000-0002-2534-2619"
     affiliation: "University of Edinburgh"
-title: "Hades: a new differential evolution mass balance program to model fractional crystallisation and assimilation in igneous rocks"
+title: "Hades: a new mass balance program to model fractional crystallisation and assimilation in igneous rocks"
 abstract: "Hades is a new open source and user-friendly petrological program designed to model the fractional crystallisation and assimilation and fractional crystallisation (AFC) of a subalkaline or alkaline suite of magmatic rocks. The software uses differential evolution optimisation to estimate the bulk modal mineral assemblage and the degree of fractional crystallisation or AFC required to explain a major and trace element liquid line of descent. The program uses a weighted absolute difference cost function to balance the contributions of the major oxides and is customisable to accommodate the investigation of complex petrological problems. Hades provides a simple and intuitive interface for users to input data and visualise the results. It is available as a standalone application or a Python module for complete automation and workflow integration.  Hades is presented as software to aid igneous petrologists and the wider geological community and can enable users to model magmatic systems from primary to evolved compositions."
 keywords:
   - Alkaline magmas
@@ -35,7 +35,7 @@ keywords:
   - Fractional crystallisation (and assimilation)
   - Secondary magmatic differentiation
 version: 0.9.1
-# doi: "zenodo...xxx"
+doi: "10.5281/zenodo.23808869"
 date-released: "2026-10-30"
 repository-code: "https://github.com/Jack6228/Hades"
 license: "BSD-3-Clause"

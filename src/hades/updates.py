@@ -38,6 +38,12 @@ def check_for_updates(gui=False) -> None:
                 print(f"A newer version of Hades is available: v{latest_version}. You are currently using v{version}.")
                 print(f" > To update, run: pip install --upgrade hades-obol")
 
+        else:
+            if gui:
+                return False, latest_version
+            else:
+                print(f"You are using the latest version of Hades: v{version}.")
+
     except Exception as e:
         if gui:
             return False, None

@@ -93,9 +93,7 @@ def setup_fonts():
     try:
         from .utils import get_asset_path
         fontfile = 'Figtree-VariableFont_wght.ttf'
-        font_path = get_asset_path(f'gui/assets/{fontfile}')
-        # file_dir = os.path.dirname(os.path.abspath(__file__))
-        # font_path = os.path.join(file_dir, './assets/Figtree-VariableFont_wght.ttf')
+        font_path = get_asset_path('hades_plouton.assets', fontfile)
         
         font_manager.fontManager.addfont(font_path)
         rcParams.update({'font.family': 'Figtree'})
